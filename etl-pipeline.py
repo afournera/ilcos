@@ -78,38 +78,43 @@ df_inv.drop(columns=["Reference"], inplace=True)
 
 
  ===== Headers in composant =====
-Actif
-Type d'Article
-Référence
-Nom
-Générique
-Contenant
-Palette
-Contrôle Requis
-Contrôle Bactério
-Fournisseur par défaut
-Article - Référence Fournisseur
-Article - Nom Fournisseur
-Prix Unitaire
-Frais Transport
-Prix Fournisseur - Fiche
-Prix Fournisseur - Devise
-Unité d'Achat
-DDP - Transport Inclus
-Quantité Mini Cde.
-Quantité Maxi Cde.
-Stock Physique
-Stock N.C.
-Stock Conforme
-Stock HZP
-Stock - Refusé
-Stock Ext.
-Qté Commandée
-Seuil Mini
-Seuil Maxi
-Délai de Réapprovisionnement
-Validation Service Achat
-Phasing
-Commitment
-Consommable
-Stock - Indisponible
+dfs["composant"].rename(
+    columns={
+        "Actif": "is_active",
+        "Type d'Article": "item_type",
+        "Référence": "item_code",  # Matches 'item_code' from your stock table!
+        "Nom": "item_name",
+        "Générique": "generic_name",
+        "Contenant": "container_type",
+        "Palette": "palette_type",
+        "Contrôle Requis": "is_control_required",
+        "Contrôle Bactério": "is_bacterio_control",
+        "Fournisseur par défaut": "default_supplier",
+        "Article - Référence Fournisseur": "supplier_part_num",
+        "Article - Nom Fournisseur": "supplier_name",
+        "Prix Unitaire": "unit_price",
+        "Frais Transport": "shipping_fees",
+        "Prix Fournisseur - Fiche": "supplier_card_price",
+        "Prix Fournisseur - Devise": "supplier_currency",
+        "Unité d'Achat": "purchase_uom",
+        "DDP - Transport Inclus": "is_ddp_shipping_inc",
+        "Quantité Mini Cde.": "min_order_qty",
+        "Quantité Maxi Cde.": "max_order_qty",
+        "Stock Physique": "physical_stock_qty",
+        "Stock N.C.": "nc_stock_qty",
+        "Stock Conforme": "compliant_stock_qty",
+        "Stock HZP": "hzp_stock_qty",
+        "Stock - Refusé": "rejected_stock_qty",
+        "Stock Ext.": "external_stock_qty",
+        "Qté Commandée": "qty_on_order",
+        "Seuil Mini": "min_stock_threshold",
+        "Seuil Maxi": "max_stock_threshold",
+        "Délai de Réapprovisionnement": "lead_time_days",
+        "Validation Service Achat": "purchasing_approved",
+        "Phasing": "phasing_status",
+        "Commitment": "commitment_status",
+        "Consommable": "is_consumable",
+        "Stock - Indisponible": "unavailable_stock_qty",
+    },
+    inplace=True,
+)
