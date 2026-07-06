@@ -77,35 +77,40 @@ df_inv.drop(columns=["Reference"], inplace=True)
 
 
 
-Article
-Article - Nom
-No. Lot Interne
-No. Lot Fournisseur
-Magasin
-Emplacement
-Quantité
-Qté Réservée
-Qté N.C.
-Unité
-Premier Mouvement
-Dernier Mouvement
-Statut Qualité
-No. de Commande
-Conditionné
-Commentaire
-Densité
-Com. Qualité
-Date Péremption
-Type d'Article
-Fournisseur par défaut
-Vrac
-Fiche Article - P.U.
-Devise
-Prix Client - Fiche
-Prix Client - Devise
-Origine
-Valorisation - Prix Unitaire
-Valorisation - Montant Total
-Valorisation - Devise
-Inflammable
-Actif
+dfs["stock"].rename(
+    columns={
+        "Article": "item_code",
+        "Article - Nom": "item_name",
+        "No. Lot Interne": "internal_lot_num",
+        "No. Lot Fournisseur": "supplier_lot_num",
+        "Magasin": "warehouse",
+        "Emplacement": "bin_location",
+        "Quantité": "qty_available",
+        "Qté Réservée": "qty_reserved",
+        "Qté N.C.": "qty_nc",
+        "Unité": "uom",  # Unit of Measure
+        "Premier Mouvement": "first_movement_date",
+        "Dernier Mouvement": "last_movement_date",
+        "Statut Qualité": "quality_status",
+        "No. de Commande": "order_num",
+        "Conditionné": "is_packaged",
+        "Commentaire": "comment",
+        "Densité": "density",
+        "Com. Qualité": "quality_comment",
+        "Date Péremption": "expiry_date",
+        "Type d'Article": "item_type",
+        "Fournisseur par défaut": "default_supplier",
+        "Vrac": "is_bulk",
+        "Fiche Article - P.U.": "item_card_unit_price",
+        "Devise": "currency",
+        "Prix Client - Fiche": "customer_price",
+        "Prix Client - Devise": "customer_price_currency",
+        "Origine": "origin",
+        "Valorisation - Prix Unitaire": "unit_price",
+        "Valorisation - Montant Total": "total_value",
+        "Valorisation - Devise": "valuation_currency",
+        "Inflammable": "is_flammable",
+        "Actif": "is_active",
+    },
+    inplace=True,
+)
