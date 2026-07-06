@@ -71,3 +71,41 @@ df_inv = pd.merge(
 
 # Drop the redundant 'Reference' column from the merge
 df_inv.drop(columns=["Reference"], inplace=True)
+
+
+
+
+
+
+Article
+Article - Nom
+No. Lot Interne
+No. Lot Fournisseur
+Magasin
+Emplacement
+Quantité
+Qté Réservée
+Qté N.C.
+Unité
+Premier Mouvement
+Dernier Mouvement
+Statut Qualité
+No. de Commande
+Conditionné
+Commentaire
+Densité
+Com. Qualité
+Date Péremption
+Type d'Article
+Fournisseur par défaut
+Vrac
+Fiche Article - P.U.
+Devise
+Prix Client - Fiche
+Prix Client - Devise
+Origine
+Valorisation - Prix Unitaire
+Valorisation - Montant Total
+Valorisation - Devise
+Inflammable
+Actif
